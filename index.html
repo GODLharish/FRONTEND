@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Harish's Professional CV - Software Engineer with expertise in C++, Python, and DSA">
+    <meta name="keywords" content="Software Engineer, C++, Python, DSA, Full Stack Developer, System Design">
+    <meta name="author" content="Harish">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Harish - Software Engineer">
+    <meta property="og:description" content="Software Engineer with expertise in C++, Python, and DSA">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/cv">
+    <meta property="og:image" content="https://your-domain.com/profile.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <title>Harish - Software Engineer</title>
+    <style>
+        @keyframes slideIn {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes skillProgress {
+            from { width: 0; }
+            to { width: var(--progress); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(52, 152, 219, 0.8); }
+            100% { box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); }
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f6f9fc 0%, #eef2f7 100%);
+            min-height: 100vh;
+            color: #2c3e50;
+        }
+        
+        .cv-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            animation: slideIn 0.8s ease-out;
+        }
+        
+        header {
+            text-align: center;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .header-content {
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .header-content::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #2c3e50);
+        }
+        
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid #3498db;
+            margin: 0 auto 25px;
+            display: block;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            animation: glow 3s infinite;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            border-color: #2c3e50;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 3.5em;
+            font-weight: 700;
+            letter-spacing: -1px;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .title {
+            color: #3498db;
+            font-size: 1.5em;
+            margin: 10px 0;
+            font-weight: 500;
+            animation: slideIn 0.8s ease-out 0.2s backwards;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, transparent);
+        }
+        
+        section {
+            margin: 30px 0;
+            padding: 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: 2px solid #3498db;
+        }
+
+        nav a:hover {
+            background: #3498db;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .contact-info p {
+            margin: 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .experience-item, .education-item {
+            border-left: 4px solid #3498db;
+            padding-left: 25px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .experience-item::before, .education-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #3498db;
+            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .skill-bar {
+            background: #e0e0e0;
+            height: 12px;
+            border-radius: 6px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2c3e50);
+            border-radius: 6px;
+            animation: skillProgress 2s ease-out forwards;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .skill-level {
+            color: #3498db;
+        }
+
+        .achievement {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #666;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.2em;
+            background-position: 0 88%;
+            transition: background-size 0.25s ease-in;
+            padding: 0 2px;
+        }
+
+        .highlight:hover {
+            background-size: 100% 100%;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .tech-tag {
+            background: #eef2f7;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            color: #2c3e50;
+            border: 1px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <header>
+            <div class="header-content">
+                <img src="profile.jpg" alt="Harish's Profile Picture" class="profile-image">
+                <h1>Harish</h1>
+                <p class="title">Software Engineer | Problem Solver | System Designer</p>
+                <nav>
+                    <ul>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#summary">Summary</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section id="contact">
+                <h2>Contact Information</h2>
+                <div class="contact-info">
+                    <p>📧 harish@example.com</p>
+                    <p>📱 (123) 456-7890</p>
+                    <p>📍 Bangalore, India</p>
+                    <p>🔗 linkedin.com/in/harish</p>
+                </div>
+            </section>
+
+            <section id="summary">
+                <h2>Professional Summary</h2>
+                <p class="highlight">Results-driven Software Engineer with a strong foundation in Computer Science (CGPA: 7.9) and expertise in C++, Python, and Data Structures & Algorithms. Proven track record of developing scalable solutions and optimizing system performance. Experienced in full-stack development with a focus on building high-performance applications. Strong problem-solving skills and a passion for creating efficient, maintainable code.</p>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">C++</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Data Structures</span>
+                    <span class="tech-tag">Algorithms</span>
+                    <span class="tech-tag">System Design</span>
+                    <span class="tech-tag">Full Stack</span>
+                </div>
+            </section>
+
+            <section id="experience">
+                <h2>Professional Experience</h2>
+                <article class="experience-item">
+                    <h3>Senior Software Engineer</h3>
+                    <p class="company">Tech Solutions Inc.</p>
+                    <p class="date">January 2022 - Present</p>
+                    <div class="achievement">
+                        Led the development of a microservices architecture that improved system performance by 40% and reduced latency by 60%
+                    </div>
+                    <ul>
+                        <li>Architected and implemented scalable backend services handling 1M+ daily requests</li>
+                        <li>Mentored junior developers and established coding standards</li>
+                        <li>Implemented CI/CD pipelines reducing deployment time by 60%</li>
+                        <li>Optimized database queries resulting in 30% faster response times</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Microservices</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">AWS</span>
+                    </div>
+                </article>
+
+                <article class="experience-item">
+                    <h3>Software Engineer</h3>
+                    <p class="company">Digital Innovations Ltd</p>
+                    <p class="date">June 2020 - December 2021</p>
+                    <div class="achievement">
+                        Developed and maintained RESTful APIs serving 1M+ requests daily with 99.9% uptime
+                    </div>
+                    <ul>
+                        <li>Implemented efficient algorithms reducing processing time by 40%</li>
+                        <li>Collaborated with UX team to implement responsive designs</li>
+                        <li>Reduced API response time by 50% through optimization</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">REST APIs</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Redis</span>
+                    </div>
+                </article>
+            </section>
+
+            <section id="education">
+                <h2>Education</h2>
+                <article class="education-item">
+                    <h3>Bachelor of Technology in Computer Science</h3>
+                    <p class="institution">National Institute of Technology</p>
+                    <p class="date">2016 - 2020</p>
+                    <p>CGPA: 7.9/10</p>
+                    <div class="achievement">
+                        Top 10% in Data Structures and Algorithms course
+                    </div>
+                    <p>Relevant Coursework: Advanced Data Structures, Algorithm Design, Database Systems, Distributed Systems</p>
+                </article>
+            </section>
+
+            <section id="skills">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Core Competencies</h3>
+                        <div class="skill-name">
+                            <span>C++</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 95%"></div>
+                        </div>
+
+                        <div class="skill-name">
+                            <span>Python</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 90%"></div>
+                        </div>
+
+                        <div class="skill-name">
+                            <span>Data Structures & Algorithms</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 95%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Development Skills</h3>
+                        <div class="skill-name">
+                            <span>System Design</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 90%"></div>
+                        </div>
+
+                        <div class="skill-name">
+                            <span>Database Management</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 85%"></div>
+                        </div>
+
+                        <div class="skill-name">
+                            <span>Cloud Technologies</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2024 Harish. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html> 
